@@ -17,7 +17,8 @@ class MainController extends Controller
     }
 
     public function check(Request $request){
-        $html = view('table')->render();
+        $name = "Gizmo";
+        $html = view('table')->with(['name' => $name])->render();
         return response()->json([
             'success' => true,
             'html' => $html

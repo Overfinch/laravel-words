@@ -1,6 +1,6 @@
 <script type="module">
     $(document).ready(function () {
-        $("form").submit(function (event) {
+        $("#contactForm").submit(function (event) {
             var formData = {
                 word: $("#word").val(),
             };
@@ -18,6 +18,7 @@
                 dataType: "json",
                 encode: true,
                 success: function (data){
+                    console.log(data.html);
                     $('#right-card').html(data.html);
                 },
             });
