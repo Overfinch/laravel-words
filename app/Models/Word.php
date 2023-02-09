@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Word extends Model
 {
     use HasFactory;
+
+    public static function getAllTurns(){
+        return self::orderByDesc('turn')->orderBy('player_id')->get()->groupBy('turn');
+    }
 }

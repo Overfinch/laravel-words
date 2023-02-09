@@ -18,7 +18,7 @@
                 dataType: "json",
                 encode: true,
                 success: function (data){
-                    console.log(data.html);
+                    // console.log(data.html);
                     $('#right-card').html(data.html);
                 },
             });

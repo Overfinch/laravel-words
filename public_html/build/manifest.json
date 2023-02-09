@@ -1,0 +1,28 @@
+{
+  "resources/images/back.jpeg": {
+    "file": "assets/back-62823e5f.jpeg",
+    "src": "resources/images/back.jpeg"
+  },
+  "resources/images/black_sand.jpeg": {
+    "file": "assets/black_sand-46ea1018.jpeg",
+    "src": "resources/images/black_sand.jpeg"
+  },
+  "resources/images/bg-1.png": {
+    "file": "assets/bg-1-54a4e717.png",
+    "src": "resources/images/bg-1.png"
+  },
+  "resources/images/bg-2.png": {
+    "file": "assets/bg-2-09ca7008.png",
+    "src": "resources/images/bg-2.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-c6f24fcc.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-e1fdc92c.js",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}

@@ -24,21 +24,21 @@ services:
             -   mysql
         ports:
             - "9000:9000"
-            - "3000:3000" # дополнительный порт для вебпака/Vite 
+            - "3000:3000" # дополнительный порт для websocket на котором будут крутиться (webpack,Vite)
     mysql:
-        platform: linux/x86_64 # add for mac m1
+        #platform: linux/x86_64 # если не будет работать на mac m1
         image: mysql
         command: --default-authentication-plugin=mysql_native_password
         restart: always
         ports:
-        -   3306:3306 
+            -   3306:3306
         environment:
             MYSQL_ROOT_PASSWORD: root
             TZ: "Europe/Kiev"
             #MYSQL_DATABASE: laravel
         volumes:
             - ./docker/mysql-data:/var/lib/mysql # Данные MYSQL будут хранится в папке /docker/mysql-data, если хотим использовать Том, то можно указать путь типа mysql-data:/var/lib/mysql
-            #- mysql-data:/var/lib/mysql # том для хранения БД mysql-data будет создан в самом докере, если хотим хранить в папке на локальной машине, то можно указать путь типа ./mysql-data:/var/lib/mysql 
+            #- mysql-data:/var/lib/mysql # том для хранения БД mysql-data будет создан в самом докере, если хотим хранить в папке на локальной машине, то можно указать путь типа ./mysql-data:/var/lib/mysql
 
     phpmyadmin:
         image: phpmyadmin

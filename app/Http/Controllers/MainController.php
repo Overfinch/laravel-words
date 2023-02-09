@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Word;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -17,8 +18,9 @@ class MainController extends Controller
     }
 
     public function check(Request $request){
-        $name = "Gizmo";
-        $html = view('table')->with(['name' => $name])->render();
+        $turns = Word::getAllTurns()->toArray();
+
+        $html = view('table')->with(['turns' => $turns])->render();
         return response()->json([
             'success' => true,
             'html' => $html
