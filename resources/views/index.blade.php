@@ -13,7 +13,7 @@
             </div>
 
             <!-- Name Input -->
-            <div class="col-md-6 col-sm-8 col-8">
+            <div class="col-md-6 col-sm-8 col-7">
                 <div class="form-floating mb-3">
                     <input class="form-control" id="word" type="text" placeholder="Word" data-sb-validations="required" />
                     <label for="name">Слово на А</label>
@@ -22,10 +22,10 @@
             </div>
 
             <!-- Submit button -->
-            <div class="col-md-2 col-sm-4 col-4">
+            <div class="col-md-2 col-sm-4 col-5">
 
                 <div class="d-grid">
-                    <button class="bubbly-button" type="submit">Подтвердить</button>
+                    <button class="bubbly-button" type="submit">Вперёд</button>
                 </div>
 
                 <!-- Submit error message -->
