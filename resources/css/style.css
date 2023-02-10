@@ -3,6 +3,10 @@ body {
     background: linear-gradient(to right, #0062E6, #33AEFF);
 }
 
+.container-fluid {
+    overflow: hidden;
+}
+
 .bg-image {
     background-image: url('../images/bg-2.png');
     background-size: cover;
@@ -22,3 +26,5 @@ body {
 .gamer-turn {
     color: white;
 }
+
+

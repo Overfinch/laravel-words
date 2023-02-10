@@ -1,4 +1,8 @@
 {
+  "resources/images/bg-2.png": {
+    "file": "assets/bg-2-09ca7008.png",
+    "src": "resources/images/bg-2.png"
+  },
   "resources/images/back.jpeg": {
     "file": "assets/back-62823e5f.jpeg",
     "src": "resources/images/back.jpeg"
@@ -11,12 +15,8 @@
     "file": "assets/bg-1-54a4e717.png",
     "src": "resources/images/bg-1.png"
   },
-  "resources/images/bg-2.png": {
-    "file": "assets/bg-2-09ca7008.png",
-    "src": "resources/images/bg-2.png"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-c6f24fcc.css",
+    "file": "assets/app-c7008a0d.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },

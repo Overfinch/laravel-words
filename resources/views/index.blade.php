@@ -6,14 +6,14 @@
 @section('content')
 
     <form id="contactForm">
-        <div class="row justify-content-center px-3 px-md-0 mb-3 mb-md-0 ">
+        <div class="row justify-content-center px-3 px-md-0 mb-3 mb-md-0">
 
             <div class="text-center">
                 <div class="h3 fw-light gamer-turn m-3">Игрок 1</div>
             </div>
 
             <!-- Name Input -->
-            <div class="col-md-4">
+            <div class="col-md-6 col-sm-8 col-8">
                 <div class="form-floating mb-3">
                     <input class="form-control" id="word" type="text" placeholder="Word" data-sb-validations="required" />
                     <label for="name">Слово на А</label>
@@ -22,10 +22,10 @@
             </div>
 
             <!-- Submit button -->
-            <div class="col-md-4">
-                <div class="d-grid">
-                    <button class="bubbly-button " type="submit">Подтвердить</button>
+            <div class="col-md-2 col-sm-4 col-4">
 
+                <div class="d-grid">
+                    <button class="bubbly-button" type="submit">Подтвердить</button>
                 </div>
 
                 <!-- Submit error message -->
