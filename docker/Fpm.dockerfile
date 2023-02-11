@@ -44,4 +44,4 @@ RUN docker-php-ext-configure pcntl --enable-pcntl \
 # Альтернативный способ установить composer
 #RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www/laravel-docker
+WORKDIR /var/www/site.com

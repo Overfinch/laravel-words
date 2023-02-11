@@ -8,7 +8,7 @@ services:
         ports:
             -   8098:80 # порты, из системы мы ообращаеися к nginx по пути http://localhost:8098 , а изнутри контейнера http://nginx:80
         volumes:
-            - ./:/var/www/laravel-docker # вся текущая папка пробрасывается в контейнер по пути /var/www/laravel-docker
+            - ./:/var/www/site.com # вся текущая папка пробрасывается в контейнер по пути /var/www/site.com
         links:
             - fpm
     fpm:
@@ -16,7 +16,7 @@ services:
             context: .
             dockerfile: docker/Fpm.dockerfile
         volumes:
-            -   ./:/var/www/laravel-docker # вся текущая папка пробрасывается в контейнер по пути /var/www/laravel-docker
+            -   ./:/var/www/site.com # вся текущая папка пробрасывается в контейнер по пути /var/www/site.com
             - type: "bind" # пробрасываем папку /tmp в систему по адресу /tmp (для сохранения логов и профайлов xdebug)
               source: "/tmp"
               target: "/tmp"
@@ -24,21 +24,21 @@ services:
             -   mysql
         ports:
             - "9000:9000"
-            - "3000:3000" # дополнительный порт для websocket на котором будут крутиться (webpack,Vite)
+            - "3000:3000" # дополнительный порт для websocket на котором будут крутиться (webpack,Vite) 
     mysql:
         #platform: linux/x86_64 # если не будет работать на mac m1
         image: mysql
         command: --default-authentication-plugin=mysql_native_password
         restart: always
         ports:
-            -   3306:3306
+        -   3306:3306 
         environment:
             MYSQL_ROOT_PASSWORD: root
             TZ: "Europe/Kiev"
             #MYSQL_DATABASE: laravel
         volumes:
             - ./docker/mysql-data:/var/lib/mysql # Данные MYSQL будут хранится в папке /docker/mysql-data, если хотим использовать Том, то можно указать путь типа mysql-data:/var/lib/mysql
-            #- mysql-data:/var/lib/mysql # том для хранения БД mysql-data будет создан в самом докере, если хотим хранить в папке на локальной машине, то можно указать путь типа ./mysql-data:/var/lib/mysql
+            #- mysql-data:/var/lib/mysql # том для хранения БД mysql-data будет создан в самом докере, если хотим хранить в папке на локальной машине, то можно указать путь типа ./mysql-data:/var/lib/mysql 
 
     phpmyadmin:
         image: phpmyadmin
