@@ -3,10 +3,6 @@
     "file": "assets/back-62823e5f.jpeg",
     "src": "resources/images/back.jpeg"
   },
-  "resources/images/bg-2.png": {
-    "file": "assets/bg-2-09ca7008.png",
-    "src": "resources/images/bg-2.png"
-  },
   "resources/images/bg-1.png": {
     "file": "assets/bg-1-54a4e717.png",
     "src": "resources/images/bg-1.png"
@@ -14,6 +10,10 @@
   "resources/images/black_sand.jpeg": {
     "file": "assets/black_sand-46ea1018.jpeg",
     "src": "resources/images/black_sand.jpeg"
+  },
+  "resources/images/bg-2.png": {
+    "file": "assets/bg-2-09ca7008.png",
+    "src": "resources/images/bg-2.png"
   },
   "resources/css/app.css": {
     "file": "assets/app-b96cde3b.css",
