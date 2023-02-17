@@ -53,7 +53,7 @@
 
     <div class="row justify-content-center" >
         <div class="col-lg-8 " id="right-card">
-            {{--                                @include('table')--}}
+            @include('table')
         </div>
     </div>
 

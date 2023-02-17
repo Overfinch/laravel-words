@@ -44,8 +44,13 @@ class State{
         return $this->lastWordModel->word;
     }
 
-    public function getLastLetter(){
-        return strtoupper(($this->lastWordModel->word)[-1]);
+    public function getLastLetter($letterIndex = -1){
+        $lastLetter = mb_strtoupper(mb_substr($this->lastWordModel->word, $letterIndex, 1));
+        if (in_array($lastLetter,['Ь','Ы','Й','Ъ'])){
+            return $this->getLastLetter($letterIndex - 1);
+        }else{
+            return $lastLetter;
+        }
     }
 
     public function getActualPlayer(){

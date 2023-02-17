@@ -20,7 +20,8 @@ class MainController extends Controller
      */
     public function index(State $state)
     {
-        return view('index',['state' => $state]);
+        $turns = Word::getAllTurns()->toArray();
+        return view('index',['state' => $state, 'turns' => $turns]);
     }
 
     public function attempt(AttemptWordRequest $request, State $state){
@@ -39,7 +40,7 @@ class MainController extends Controller
 
         $html = view('table')->with(['turns' => $turns])->render();
         return response()->json([
-            'html' => $html,
+            'html' => mb_convert_encoding($html, 'UTF-8', 'UTF-8'),
             'state' => $state,
         ]);
     }
