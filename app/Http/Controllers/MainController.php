@@ -10,6 +10,7 @@ use App\Services\WordService;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use newrelic\DistributedTracePayload;
 
 class MainController extends Controller
 {
@@ -18,31 +19,17 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(State $state)
-    {
+    public function index(State $state){
         $turns = Word::getAllTurns()->toArray();
         return view('index',['state' => $state, 'turns' => $turns]);
     }
 
     public function attempt(AttemptWordRequest $request, State $state){
-
-        $word = new Word([
-            'word' => $request->validated('word'),
-            'player_id' => $state->actualPlayer,
-            'turn' => ($state->actualPlayer == 1) ? $state->lastTurn + 1 : $state->lastTurn
-        ]);
-
-        if ($word->save()){
-            $state = new State();
-        }
-
+        WordService::save($request, $state);
         $turns = Word::getAllTurns()->toArray();
+        $html = WordService::renderView($turns);
 
-        $html = view('table')->with(['turns' => $turns])->render();
-        return response()->json([
-            'html' => mb_convert_encoding($html, 'UTF-8', 'UTF-8'),
-            'state' => $state,
-        ]);
+        return WordService::renderResponse($html, $state);
     }
 
     /**
@@ -63,7 +50,7 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

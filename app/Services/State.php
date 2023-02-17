@@ -15,10 +15,15 @@ class State{
         // Берём последнее вставленное слово в базу
         $this->lastWordModel = Word::getLastWord();
         // Инициализируем "Состояние"
-        $this->initProperties();
+        $this->init();
     }
 
-    public function initProperties(){
+    public function initWithNewWord(Word $word){
+        $this->lastWordModel = $word;
+        $this->init();
+    }
+
+    public function init(){
         // Если в базе есть слово, инициализируем "Состояние" на основе последнего,
         // если в базе нету слов, инициализируем на как первый ход
         !empty($this->lastWordModel)

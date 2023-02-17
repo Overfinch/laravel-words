@@ -4,7 +4,6 @@
 @section('title','Main page')
 
 @section('content')
-
     <form id="wordForm">
         <div class="row justify-content-center px-3 px-md-0 mb-3 mb-md-0">
 

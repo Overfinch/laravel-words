@@ -1,19 +1,51 @@
 {
+  "resources/images/back.jpeg": {
+    "file": "assets/back-62823e5f.jpeg",
+    "src": "resources/images/back.jpeg"
+  },
+  "resources/images/favicon/apple-touch-icon.png": {
+    "file": "assets/apple-touch-icon-54faf60b.png",
+    "src": "resources/images/favicon/apple-touch-icon.png"
+  },
+  "resources/images/favicon/about.txt": {
+    "file": "assets/about-3a69588a.txt",
+    "src": "resources/images/favicon/about.txt"
+  },
+  "resources/images/black_sand.jpeg": {
+    "file": "assets/black_sand-46ea1018.jpeg",
+    "src": "resources/images/black_sand.jpeg"
+  },
+  "resources/images/favicon/android-chrome-192x192.png": {
+    "file": "assets/android-chrome-192x192-6404feef.png",
+    "src": "resources/images/favicon/android-chrome-192x192.png"
+  },
   "resources/images/bg-2.png": {
     "file": "assets/bg-2-09ca7008.png",
     "src": "resources/images/bg-2.png"
+  },
+  "resources/images/favicon/android-chrome-512x512.png": {
+    "file": "assets/android-chrome-512x512-514d3a36.png",
+    "src": "resources/images/favicon/android-chrome-512x512.png"
+  },
+  "resources/images/favicon/site.webmanifest": {
+    "file": "assets/site-7a9e07ce.webmanifest",
+    "src": "resources/images/favicon/site.webmanifest"
+  },
+  "resources/images/favicon/favicon-16x16.png": {
+    "file": "assets/favicon-16x16-a6bff428.png",
+    "src": "resources/images/favicon/favicon-16x16.png"
+  },
+  "resources/images/favicon/favicon.ico": {
+    "file": "assets/favicon-e8809cc2.ico",
+    "src": "resources/images/favicon/favicon.ico"
   },
   "resources/images/bg-1.png": {
     "file": "assets/bg-1-54a4e717.png",
     "src": "resources/images/bg-1.png"
   },
-  "resources/images/back.jpeg": {
-    "file": "assets/back-62823e5f.jpeg",
-    "src": "resources/images/back.jpeg"
-  },
-  "resources/images/black_sand.jpeg": {
-    "file": "assets/black_sand-46ea1018.jpeg",
-    "src": "resources/images/black_sand.jpeg"
+  "resources/images/favicon/favicon-32x32.png": {
+    "file": "assets/favicon-32x32-c6335e0d.png",
+    "src": "resources/images/favicon/favicon-32x32.png"
   },
   "resources/css/app.css": {
     "file": "assets/app-a717d4f1.css",
