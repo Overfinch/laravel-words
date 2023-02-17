@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <form id="contactForm">
+    <form id="wordForm">
         <div class="row justify-content-center px-3 px-md-0 mb-3 mb-md-0">
 
             <div class="text-center">
@@ -41,9 +41,11 @@
     <div class="row justify-content-center">
         <div class="col-lg-8" id="alert-block">
 
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Ëпт!</strong> что-то сломалось...
-                <button type="button" class="btn-close" id="alert-close" aria-label="Закрыть"></button>
+            <div class="alert alert-danger alert-dismissible fade show d-none" id="error-alert" role="alert">
+                <span>
+
+                </span>
+{{--                <button type="button" class="btn-close" id="alert-close" aria-label="Закрыть"></button>--}}
             </div>
 
         </div>

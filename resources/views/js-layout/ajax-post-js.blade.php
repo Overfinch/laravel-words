@@ -1,9 +1,16 @@
 <script type="module">
     $(document).ready(function () {
-        $("#contactForm").submit(function (event) {
+
+        function capitalize(str){
+            return str.charAt(0).toUpperCase() + str.slice(1)
+        }
+
+        // Отправка AJAX запроса при отправке формы
+        $("#wordForm").submit(function (event) {
             var formData = {
-                word: $("#word").val(),
+                word: capitalize($("#word").val()),
             };
+
 
             $.ajaxSetup({
                 headers: {
@@ -13,7 +20,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{route('check-word')}}",
+                url: "{{route('attempt-word')}}",
                 data: formData,
                 dataType: "json",
                 encode: true,
@@ -22,18 +29,21 @@
                     $('.gamer-turn > span').html(data.state.actualPlayer);
                     $('#word-label > span').html(data.state.lastLetter);
                     $('#right-card').html(data.html);
-                    console.log(status);
+                    $('#wordForm')[0].reset();
                 },
-                error: function (data, textStatus, errorThrown){
-                    console.log('Ошибка аджакса...');
-                    console.log(data.responseJSON.message);
-                    console.log(data);
+                error: function (data){
+                    $('#error-alert > span').html(data.responseJSON.message);
+                    $('#error-alert').removeClass('d-none');
+                    setTimeout(function (){
+                        $('#error-alert').addClass('d-none');
+                    }, 3000);
                 }
             });
 
             event.preventDefault();
         });
 
+        // Анимация кнопки
         var animateButton = function(e) {
             e.preventDefault;
             //reset animation
@@ -50,6 +60,7 @@
         for (var i = 0; i < bubblyButtons.length; i++) {
             bubblyButtons[i].addEventListener('click', animateButton, false);
         }
+
     });
 
 </script>

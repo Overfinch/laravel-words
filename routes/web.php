@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\MainController::class, 'index']);
-Route::post('/check-word',[\App\Http\Controllers\MainController::class, 'check'])->name('check-word');
+Route::post('/attempt-word',[\App\Http\Controllers\MainController::class, 'attempt'])->name('attempt-word');
 
 //Route::get('/', function () {
 //    return view('welcome');

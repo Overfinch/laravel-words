@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AttemptWordRequest;
 use App\Models\Word;
 use App\Services\State;
 use App\Services\StateService;
 use App\Services\WordService;
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MainController extends Controller
 {
@@ -20,11 +23,17 @@ class MainController extends Controller
         return view('index',['state' => $state]);
     }
 
-    public function check(Request $request, State $state){
+    public function attempt(AttemptWordRequest $request, State $state){
 
-        $validated = $request->validate([
-            'word' => 'required',
+        $word = new Word([
+            'word' => $request->validated('word'),
+            'player_id' => $state->actualPlayer,
+            'turn' => ($state->actualPlayer == 1) ? $state->lastTurn + 1 : $state->lastTurn
         ]);
+
+        if ($word->save()){
+            $state = new State();
+        }
 
         $turns = Word::getAllTurns()->toArray();
 

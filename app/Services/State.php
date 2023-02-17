@@ -9,6 +9,7 @@ class State{
     public $lastWord = '';
     public $lastLetter = '';
     public $actualPlayer = null;
+    public $lastTurn = null;
 
     public function __construct(){
         // Берём последнее вставленное слово в базу
@@ -29,12 +30,14 @@ class State{
         $this->lastWord = $this->getLastWord();
         $this->lastLetter = $this->getLastLetter();
         $this->actualPlayer = $this->getActualPlayer();
+        $this->lastTurn = $this->getLastTurn();
     }
 
     public function initFirstTurnProperties(){
         $this->lastWord = null;
         $this->lastLetter = "А";
         $this->actualPlayer = 1;
+        $this->lastTurn = 0;
     }
 
     public function getLastWord(){
@@ -42,10 +45,14 @@ class State{
     }
 
     public function getLastLetter(){
-        return ($this->lastWordModel->word)[0];
+        return strtoupper(($this->lastWordModel->word)[-1]);
     }
 
     public function getActualPlayer(){
         return ($this->lastWordModel->player_id == 1) ? 2 : 1;
+    }
+
+    public function getLastTurn(){
+        return $this->lastWordModel->turn;
     }
 }

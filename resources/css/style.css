@@ -27,4 +27,6 @@ body {
     color: white;
 }
 
-
+#word {
+    text-transform: capitalize;
+}

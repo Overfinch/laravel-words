@@ -9,6 +9,8 @@ class Word extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public static function getAllTurns(){
         return self::orderByDesc('turn')->orderBy('player_id')->get()->groupBy('turn');
     }
