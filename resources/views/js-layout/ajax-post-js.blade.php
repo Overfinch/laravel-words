@@ -17,10 +17,18 @@
                 data: formData,
                 dataType: "json",
                 encode: true,
-                success: function (data){
+                success: function (data, status, jqxhr){
                     // console.log(data.html);
+                    $('.gamer-turn > span').html(data.state.actualPlayer);
+                    $('#word-label > span').html(data.state.lastLetter);
                     $('#right-card').html(data.html);
+                    console.log(status);
                 },
+                error: function (data, textStatus, errorThrown){
+                    console.log('Ошибка аджакса...');
+                    console.log(data.responseJSON.message);
+                    console.log(data);
+                }
             });
 
             event.preventDefault();

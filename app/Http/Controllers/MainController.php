@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Word;
+use App\Services\State;
+use App\Services\StateService;
+use App\Services\WordService;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -12,18 +15,23 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(State $state)
     {
-        return view('index');
+        return view('index',['state' => $state]);
     }
 
-    public function check(Request $request){
+    public function check(Request $request, State $state){
+
+        $validated = $request->validate([
+            'word' => 'required',
+        ]);
+
         $turns = Word::getAllTurns()->toArray();
 
         $html = view('table')->with(['turns' => $turns])->render();
         return response()->json([
-            'success' => true,
-            'html' => $html
+            'html' => $html,
+            'state' => $state,
         ]);
     }
 

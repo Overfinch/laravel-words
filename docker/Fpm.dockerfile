@@ -29,10 +29,10 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
   && docker-php-ext-install \
     zip \
     pdo_mysql \
-    pdo_mysql \
     mysqli \
     gd \
-    exif
+    exif \
+    bcmath
 
 RUN docker-php-ext-configure pcntl --enable-pcntl \
   && docker-php-ext-install \

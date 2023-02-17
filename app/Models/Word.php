@@ -12,4 +12,8 @@ class Word extends Model
     public static function getAllTurns(){
         return self::orderByDesc('turn')->orderBy('player_id')->get()->groupBy('turn');
     }
+
+    public static function getLastWord(){
+        return self::orderByDesc('id')->first();
+    }
 }
