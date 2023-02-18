@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\AttemptWordRequest;
 use App\Models\Word;
+use Illuminated\Wikipedia\Wikipedia;
 
 class WordService
 {
@@ -33,5 +34,9 @@ class WordService
          if ($word->save()){
              $state->initWithNewWord($word);
          }
+     }
+
+     public static function getWikiPreview($word){
+        return (new Wikipedia('ru'))->preview($word);
      }
 }
