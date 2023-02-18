@@ -28,7 +28,6 @@ class MainController extends Controller
         WordService::save($request, $state);
         $turns = Word::getAllTurns()->toArray();
         $html = WordService::renderView($turns);
-
         return WordService::renderResponse($html, $state);
     }
 

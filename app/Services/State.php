@@ -12,10 +12,7 @@ class State{
     public $lastTurn = null;
 
     public function __construct(){
-        // Берём последнее вставленное слово в базу
-        $this->lastWordModel = Word::getLastWord();
-        // Инициализируем "Состояние"
-        $this->init();
+        $this->initWithLastWord();
     }
 
     public function initWithNewWord(Word $word){
@@ -23,9 +20,15 @@ class State{
         $this->init();
     }
 
+    public function initWithLastWord(){
+        // Берём последнее вставленное слово в базу
+        $this->lastWordModel = Word::getLastWord();
+        $this->init();
+    }
+
     public function init(){
-        // Если в базе есть слово, инициализируем "Состояние" на основе последнего,
-        // если в базе нету слов, инициализируем на как первый ход
+        // Если есть последнее вставленное слово, инициализируем "Состояние" на основе последнего,
+        // если нету последнего вставленного слова, инициализируем на как первый ход
         !empty($this->lastWordModel)
             ?  $this->initActualProperties()
             : $this->initFirstTurnProperties();
