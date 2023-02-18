@@ -7,15 +7,20 @@ use App\Models\Word;
 
 class WordService
 {
-    public static function renderResponse($html, $state){
+    public static function renderResponse($htmlTable, $htmlWiki,  $state){
         return response()->json([
-            'html' => mb_convert_encoding($html, 'UTF-8', 'UTF-8'),
+            'htmlTable' => mb_convert_encoding($htmlTable, 'UTF-8', 'UTF-8'),
+            'htmlWiki' => $htmlWiki,
             'state' => $state,
         ]);
     }
 
-    public static function renderView($turns){
+    public static function renderTableView($turns){
         return view('table')->with(['turns' => $turns])->render();
+    }
+
+    public static function renderWikiView($preview){
+        return view('wiki-preview')->with(['preview' => $preview])->render();
     }
 
      public static function save(AttemptWordRequest $request, State $state){

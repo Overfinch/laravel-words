@@ -10,6 +10,7 @@ use App\Services\WordService;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminated\Wikipedia\Wikipedia;
 use newrelic\DistributedTracePayload;
 
 class MainController extends Controller
@@ -26,9 +27,14 @@ class MainController extends Controller
 
     public function attempt(AttemptWordRequest $request, State $state){
         WordService::save($request, $state);
+        $word = $request->validated('word');
+        $wiki = new Wikipedia('ru');
+        $preview = $wiki->preview($word);
+
         $turns = Word::getAllTurns()->toArray();
-        $html = WordService::renderView($turns);
-        return WordService::renderResponse($html, $state);
+        $htmlTable = WordService::renderTableView($turns);
+        $htmlWiki = WordService::renderWikiView($preview);
+        return WordService::renderResponse($htmlTable, $htmlWiki, $state);
     }
 
     /**

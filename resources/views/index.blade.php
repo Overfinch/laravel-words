@@ -5,7 +5,7 @@
 
 @section('content')
     <form id="wordForm">
-        <div class="row justify-content-center px-3 px-md-0 mb-3 mb-md-0">
+        <div class="row justify-content-center px-3 px-md-0 ">
 
             <div class="text-center">
                 <div class="h3 fw-light gamer-turn m-3">Игрок <span>{{$state->actualPlayer}}</span></div>
@@ -41,17 +41,20 @@
         <div class="col-lg-8" id="alert-block">
 
             <div class="alert alert-danger alert-dismissible fade show d-none" id="error-alert" role="alert">
-                <span>
-
-                </span>
-{{--                <button type="button" class="btn-close" id="alert-close" aria-label="Закрыть"></button>--}}
+                <span></span>
             </div>
 
         </div>
     </div>
 
-    <div class="row justify-content-center" >
-        <div class="col-lg-8 " id="right-card">
+    <div class="row justify-content-center px-3 px-lg-0" >
+        <div class="col-lg-8 " id="wiki-card">
+
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3 " >
+        <div class="col-lg-8 " id="table-card">
             @include('table')
         </div>
     </div>

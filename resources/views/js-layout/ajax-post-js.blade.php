@@ -28,7 +28,8 @@
                     // console.log(data.html);
                     $('.gamer-turn > span').html(data.state.actualPlayer);
                     $('#word-label > span').html(data.state.lastLetter);
-                    $('#right-card').html(data.html);
+                    $('#table-card').html(data.htmlTable);
+                    $('#wiki-card').html(data.htmlWiki);
                     $('#wordForm')[0].reset();
                 },
                 error: function (data){
