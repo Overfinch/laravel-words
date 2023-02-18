@@ -27,6 +27,7 @@ class AttemptWordRequest extends FormRequest
         return [
             'word' => [
                 "required",
+                "alpha",
                 "starts_with:$state->lastLetter",
                 "unique:words,word"
             ],
@@ -36,9 +37,10 @@ class AttemptWordRequest extends FormRequest
     public function messages()
     {
         return [
-          'word.required' => 'Вы не ввели слово',
-          'word.starts_with' => 'Слово должно начинаться на :values',
-            'word.unique' => 'Такое слово уже было'
+            'word.required' => 'Вы не ввели слово',
+            'word.starts_with' => 'Слово должно начинаться на :values',
+            'word.unique' => 'Такое слово уже было',
+            'word.alpha' => 'Слово должно состоять только из букв'
         ];
     }
 }
