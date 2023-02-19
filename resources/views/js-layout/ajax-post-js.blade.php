@@ -25,7 +25,6 @@
                 dataType: "json",
                 encode: true,
                 success: function (data, status, jqxhr){
-                    // console.log(data.html);
                     $('.gamer-turn > span').html(data.state.actualPlayer);
                     $('#word-label > span').html(data.state.lastLetter);
                     $('#table-card').html(data.htmlTable);

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[\App\Http\Controllers\MainController::class, 'index']);
 Route::post('/attempt-word',[\App\Http\Controllers\MainController::class, 'attempt'])->name('attempt-word');
 
+Route::get('/wiki',[\App\Http\Controllers\MainController::class, 'wiki'])->name('wiki');
+
 //Route::get('/', function () {
 //    return view('welcome');
 //});

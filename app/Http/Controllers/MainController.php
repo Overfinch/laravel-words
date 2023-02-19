@@ -8,6 +8,7 @@ use App\Services\State;
 use App\Services\StateService;
 use App\Services\WordService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class MainController extends Controller
 {
@@ -24,11 +25,12 @@ class MainController extends Controller
     public function attempt(AttemptWordRequest $request, State $state){
         WordService::save($request, $state);
         $word = $request->validated('word');
-        $preview = WordService::getWikiPreview($word);
+
+        $wikiData = WordService::getWikiData($word);
+        $htmlWiki = WordService::renderWikiView($wikiData);
 
         $turns = Word::getAllTurns()->toArray();
         $htmlTable = WordService::renderTableView($turns);
-        $htmlWiki = WordService::renderWikiView($preview);
         return WordService::renderResponse($htmlTable, $htmlWiki, $state);
     }
 

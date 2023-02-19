@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\AttemptWordRequest;
 use App\Models\Word;
+use Illuminate\Support\Facades\Http;
 use Illuminated\Wikipedia\Wikipedia;
 
 class WordService
@@ -20,8 +21,8 @@ class WordService
         return view('table')->with(['turns' => $turns])->render();
     }
 
-    public static function renderWikiView($preview){
-        return view('wiki-preview')->with(['preview' => $preview])->render();
+    public static function renderWikiView($data){
+        return view('wiki-preview')->with(['data' => $data])->render();
     }
 
      public static function save(AttemptWordRequest $request, State $state){
@@ -36,7 +37,14 @@ class WordService
          }
      }
 
-     public static function getWikiPreview($word){
-        return (new Wikipedia('ru'))->preview($word);
+     public static function getWikiData($word){
+         $response = Http::get('https://ru.wikipedia.org/api/rest_v1/page/summary/'.$word);
+         $json = $response->json();
+         $data['html'] = $json['extract_html'] ?? null;
+         if (isset($json["thumbnail"]["source"])){
+             $data["img_url"] = $json["thumbnail"]["source"];
+         }
+         $data["img_url"] = $json["thumbnail"]["source"] ?? null;
+         return $data;
      }
 }
