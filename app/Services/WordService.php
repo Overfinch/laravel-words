@@ -41,9 +41,6 @@ class WordService
          $response = Http::get('https://ru.wikipedia.org/api/rest_v1/page/summary/'.$word);
          $json = $response->json();
          $data['html'] = $json['extract_html'] ?? null;
-         if (isset($json["thumbnail"]["source"])){
-             $data["img_url"] = $json["thumbnail"]["source"];
-         }
          $data["img_url"] = $json["thumbnail"]["source"] ?? null;
          return $data;
      }
